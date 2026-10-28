@@ -1,0 +1,102 @@
+// This program demonstrates user input using the Scanner class.
+// It creates an interactive calculator that performs basic operations.
+import java.util.Scanner;
+
+public class InteractiveCalculator {
+    public static void main(String[] args) {
+        // Create a Scanner object to read input from the keyboard.
+        Scanner scanner = new Scanner(System.in);
+
+        // =========================================================
+        // WELCOME MESSAGE
+        // =========================================================
+        System.out.println("========================================");
+        System.out.println(" INTERACTIVE CALCULATOR");
+        System.out.println("========================================");
+
+        // =========================================================
+        // READ USER'S NAME
+        // =========================================================
+        System.out.print("Enter your name: ");
+        String name = scanner.nextLine();
+        System.out.println("\nHello, " + name + "! Let's do some calculations.\n");
+
+        // =========================================================
+        // READ FIRST NUMBER
+        // =========================================================
+        System.out.print("Enter first number: ");
+        double num1 = scanner.nextDouble();
+
+        // =========================================================
+        // READ SECOND NUMBER
+        // =========================================================
+        System.out.print("Enter second number: ");
+        double num2 = scanner.nextDouble();
+
+        // =========================================================
+        // PERFORM CALCULATIONS
+        // =========================================================
+        double sum = num1 + num2;
+        double difference = num1 - num2;
+        double product = num1 * num2;
+
+        // Division - check for division by zero
+        double quotient = 0;
+        boolean divisionValid = false;
+        if (num2 != 0) {
+            quotient = num1 / num2;
+            divisionValid = true;
+        }
+
+        // Modulus - only for integers
+        int intNum1 = (int) num1;
+        int intNum2 = (int) num2;
+        int remainder = 0;
+        boolean modulusValid = false;
+        if (intNum2 != 0) {
+            remainder = intNum1 % intNum2;
+            modulusValid = true;
+        }
+
+        // =========================================================
+        // DISPLAY RESULTS
+        // =========================================================
+        System.out.println("\n========================================");
+        System.out.println(" RESULTS FOR " + name.toUpperCase());
+        System.out.println("========================================");
+        System.out.println("First Number: " + num1);
+        System.out.println("Second Number: " + num2);
+        System.out.println("----------------------------------------");
+        System.out.println("Addition: " + num1 + " + " + num2 + " = " + sum);
+        System.out.println("Subtraction: " + num1 + " - " + num2 + " = " + difference);
+        System.out.println("Multiplication: " + num1 + " * " + num2 + " = " + product);
+
+        if (divisionValid) {
+            System.out.println("Division: " + num1 + " / " + num2 + " = " + quotient);
+        } else {
+            System.out.println("Division: Cannot divide by zero!");
+        }
+
+        if (modulusValid) {
+            System.out.println("Modulus: " + intNum1 + " % " + intNum2 + " = " + remainder);
+        } else {
+            System.out.println("Modulus: Cannot divide by zero!");
+        }
+
+        // =========================================================
+        // ADDITIONAL CALCULATIONS
+        // =========================================================
+        double average = (num1 + num2) / 2;
+        double square = num1 * num1;
+
+        System.out.println("\n=== ADDITIONAL CALCULATIONS ===");
+        System.out.println("Average of " + num1 + " and " + num2 + " = " + average);
+        System.out.println("Square of " + num1 + " = " + square);
+
+        // =========================================================
+        // CLOSE THE SCANNER
+        // =========================================================
+        scanner.close();
+        System.out.println("\nThank you for using the calculator, " + name + "!");
+    }
+}
